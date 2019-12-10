@@ -5,7 +5,7 @@ import pink from '@material-ui/core/colors/pink'
 import Content from './components/Content'
 import Footer from './components/Footer'
 import SocialMediaIcons from './components/SocialMediaIcons'
-import HackerImg from './components/HackerImg'
+import HeroImg from './components/HeroImg'
 import Spacing from './components/Spacing'
 import WeText from './components/WeText'
 import MobileMenu from './components/MobileMenu'
@@ -101,7 +101,7 @@ class App extends React.Component {
                                 handleSnackBar={this.handleSnackBar}
                             />
                         ) : (<Check />)}
-                        <HackerImg />
+                        <HeroImg />
                         <Spacing />
                         <WeText />
                         <Content />
