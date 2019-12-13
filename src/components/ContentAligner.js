@@ -31,9 +31,6 @@ class ContentAligner extends React.Component {
     }
     render () {
       const {classes} = this.props
-          // .MuiCardMedia-img
-        // classes['MuiCardMedia-img']['margin'] = '1px solid white'
-        // console.log(classes, '<---- check the classes')
       return (
         <React.Fragment>
           <Spacing />

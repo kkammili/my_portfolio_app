@@ -45,7 +45,7 @@ class TransitionMenuButtons extends React.Component {
                   navigator.clipboard.writeText(address)
                     .then(() => {
                       const position = {horizontal: 'center', vertical: 'bottom'}
-                      const message = `Successfully copied address to clipboard 😁😁`
+                      const message = `Copied to clipboard 😁😁`
                       const barType = 'success'
                       this.props.handleSnackBar(true, position, message, barType)
                     })
