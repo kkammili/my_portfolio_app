@@ -1,5 +1,3 @@
-import React from 'react'
-
 const paragraph1 = 'In high school, I was that kid that seemed to never be paying attention.\n' +
     '                            Seemingly in my own world of doodles and drawings.\n' +
     '                            I’ve had a pencil in my hand since I was in diapers.\n' +
@@ -22,11 +20,11 @@ export const paragraph2 = 'Clear C2 is a CRM company that can transform your bus
     'Intelligence (AI) is displayed by machines, as opposed to “natural intelligence,”' +
     ' which is displayed by humans and other animals. ..'
 
-export const paragraph3 = <span>MERN is a JavaScript stack that provides end-to-end resources for building web apps, including front-end, back-end and database components. MERN stands for the four apps used in conjunction:
-  <br /><br /> MongoDB: Back-end database for storing data as JSON documents.
-  <br /><br /> Express: Back-end web app framework for running jointly with Node.js.
-  <br /><br /> React: Front-end JavaScript library (developed by Facebook) for interactive front-end development.
-  <br /><br /> Node.js: Back-end engine for handling back-end server components.
-</span>
+export const paragraph3 = 'MERN is a JavaScript stack that provides end-to-end resources for building web apps, including front-end, back-end and database components. MERN stands for the four apps used in conjunction: /n ' +
+    'MongoDB: Back-end database for storing data as JSON documents. /n ' +
+    'Express: Back-end web app framework for running jointly with Node.js. /n ' +
+    'React: Front-end JavaScript library (developed by Facebook) for interactive front-end development. /n ' +
+    'Node.js: Back-end engine for handling back-end server components.'
+
 
 export default paragraph1

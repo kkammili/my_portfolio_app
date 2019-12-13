@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import Card from '@material-ui/core/Card'
 import Container from '@material-ui/core/Container'
 import CardContent from '@material-ui/core/CardContent'
@@ -14,7 +14,11 @@ const styles = theme => ({
   card: {
     maxWidth: '100%',
     backgroundColor: theme.palette.primary.main
-  }
+  },
+    cardMedia:{
+      border:'2px solid #ffffff',
+        borderStyle:'outset'
+    }
 })
 
 class ContentAligner extends React.Component {
@@ -27,6 +31,9 @@ class ContentAligner extends React.Component {
     }
     render () {
       const {classes} = this.props
+          // .MuiCardMedia-img
+        // classes['MuiCardMedia-img']['margin'] = '1px solid white'
+        // console.log(classes, '<---- check the classes')
       return (
         <React.Fragment>
           <Spacing />
@@ -36,6 +43,7 @@ class ContentAligner extends React.Component {
                 <Container maxWidth={'xl'} color={'#000'}>
                   <CardMedia
                     component='img'
+                    className={classes.cardMedia}
                     alt='Contemplative Reptile'
                     height={250}
                     width={'60%'}
@@ -53,7 +61,18 @@ class ContentAligner extends React.Component {
                         {this.props.heading}
                       </Typography>
                       <Typography variant='body2' component='p' color={'secondary'}>
-                        {this.props.paragraph}
+                        {this.props.paragraph.split(' ').map((item, index) =>{
+                            if(item === '/n'){
+                                return (
+                                    <Fragment key = {item + index}>
+                                        <br />
+                                        <br />
+                                    </Fragment>
+                                )
+                            }else{
+                                return <span key={item + index}>{item + ' '}</span>
+                            }
+                        })}
                       </Typography>
                     </CardContent>
                   </Grid>

@@ -55,7 +55,7 @@ class Footer extends React.Component {
       return (
         <Fragment>
           <Spacing />
-          <Grid style={this.props.headerMenu ? {height: '100%'} : null} container>
+          <Grid style={this.props.headerMenu ? {height: '100vh'} : null} container>
             <Grid item xs={1} />
             <Grid container className={classes.Grid} alignContent={'space-between'} item xs={8}>
               {this.items.map(item => (
