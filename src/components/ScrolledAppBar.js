@@ -38,23 +38,21 @@ class ScrolledAppBar extends Component {
       }
 
         state = {
-          scrolling: false,
-          // scrollTop: true,
+          scrolling: 0,
+          hiding:false,
           menuOpen: false
         };
 
-        onScroll = e => {
-          // console.log(e.target.documentElement.scrollTop, '<---- check this')
-          //   console.log(window.scrollX, window.scrollY, 'x,y <--- check the window')
-          // this.setState(state => ({
-          //   // scrollTop: e.target.documentElement.scrollTop,
-          //   scrolling: !e.target.documentElement.scrollTop
-          // }))
+        onScroll = () => {
+          const currScrollPos = window.pageYOffset - 30
+            if(this.state.scrolling < currScrollPos){
+              !this.state.hiding && this.setState({hiding:true})
+            }else{
+                this.state.hiding && this.setState({hiding:false})
+            }
+            this.setState({scrolling: currScrollPos})
         };
 
-        // shouldComponentUpdate (props, state) {
-        //   return this.state.scrolling !== state.scrolling
-        // }
 
         componentDidMount () {
           window.addEventListener('scroll', this.onScroll)
@@ -68,7 +66,7 @@ class ScrolledAppBar extends Component {
           const {classes} = this.props
           return (
             <div className={classes.root}>
-              <Fade in={!this.state.scrolling}>
+              <Fade in={!this.state.hiding}>
                 <AppBar
                   color={classes.colorPrimary}
                   className={(this.props.isMobile) ? classes.appBarSm : classes.appBar}
