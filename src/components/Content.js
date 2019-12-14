@@ -34,14 +34,14 @@ const Content = (props) => {
           {...props}
         />
       </a>
-        <a name='My Hobbies'>
-            <ContentAligner
-                heading={'HOBBIES'}
-                paragraph={paragraph4}
-                media={hobbies}
-                {...props}
-            />
-        </a>
+      <a name='My Hobbies'>
+        <ContentAligner
+          heading={'HOBBIES'}
+          paragraph={paragraph4}
+          media={hobbies}
+          {...props}
+        />
+      </a>
     </Fragment>
   )
 }

@@ -15,10 +15,10 @@ const styles = theme => ({
     maxWidth: '100%',
     backgroundColor: theme.palette.primary.main
   },
-    cardMedia:{
-      border:'2px solid #ffffff',
-        borderStyle:'outset'
-    }
+  cardMedia: {
+    border: '2px solid #ffffff',
+    borderStyle: 'outset'
+  }
 })
 
 class ContentAligner extends React.Component {
@@ -58,17 +58,17 @@ class ContentAligner extends React.Component {
                         {this.props.heading}
                       </Typography>
                       <Typography variant='body2' component='p' color={'secondary'}>
-                        {this.props.paragraph.split(' ').map((item, index) =>{
-                            if(item === '/n'){
-                                return (
-                                    <Fragment key = {item + index}>
-                                        <br />
-                                        <br />
-                                    </Fragment>
-                                )
-                            }else{
-                                return <span key={item + index}>{item + ' '}</span>
-                            }
+                        {this.props.paragraph.split(' ').map((item, index) => {
+                          if (item === '/n') {
+                            return (
+                              <Fragment key={item + index}>
+                                <br />
+                                <br />
+                              </Fragment>
+                            )
+                          } else {
+                            return <span key={item + index}>{item + ' '}</span>
+                          }
                         })}
                       </Typography>
                     </CardContent>

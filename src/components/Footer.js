@@ -10,9 +10,9 @@ const styles = (theme) => ({
   text: {
     color: theme.textColor
   },
-    color:{
-        color: theme.palette.primary.main
-    },
+  color: {
+    color: theme.palette.primary.main
+  },
   Grid: {
     height: 220
   },
@@ -52,33 +52,33 @@ class Footer extends React.Component {
       }
     }
 
-    items = ['Home', 'My Story', 'My Work', 'My Tech','My Hobbies', 'My Resume', 'Contact Me',]
+    items = ['Home', 'My Story', 'My Work', 'My Tech', 'My Hobbies', 'My Resume', 'Contact Me']
     render () {
       const {classes} = this.props
       return (
         <Fragment>
-            <div style={{backgroundColor:'black'}}>
-          <Spacing />
-          <Grid style={this.props.headerMenu ? {height: '100vh'} : null} container>
-            <Grid item xs={1} />
-            <Grid container className={classes.Grid} alignContent={'space-between'} item xs={8}>
-              {this.items.map(item => (
-                <Fragment key={item}>
-                  <Grid item xs={6}>
-                    <Typography color={'secondary'} className={classes.text}>
-                      <TransitionMenuButtons {...this.props}>
-                        {item}
-                      </TransitionMenuButtons>
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={6} />
-                </Fragment>
-              ))}
+          <div style={{backgroundColor: 'black'}}>
+            <Spacing />
+            <Grid style={this.props.headerMenu ? {height: '100vh'} : null} container>
+              <Grid item xs={1} />
+              <Grid container className={classes.Grid} alignContent={'space-between'} item xs={8}>
+                {this.items.map(item => (
+                  <Fragment key={item}>
+                    <Grid item xs={6}>
+                      <Typography color={'secondary'} className={classes.text}>
+                        <TransitionMenuButtons {...this.props}>
+                          {item}
+                        </TransitionMenuButtons>
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={6} />
+                  </Fragment>
+                ))}
+              </Grid>
+              <Grid item xs={1} />
             </Grid>
-            <Grid item xs={1} />
-          </Grid>
-          <Spacing />
-            </div>
+            <Spacing />
+          </div>
         </Fragment>
       )
     }

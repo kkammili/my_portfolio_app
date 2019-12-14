@@ -19,12 +19,12 @@ const styles = theme => ({
   },
   appBarSm: {
     height: 90,
-      display:'flex',
-      justifyContent:'space-between'
+    display: 'flex',
+    justifyContent: 'space-between'
   },
-    padRight:{
-    paddingRight:'10px'
-    },
+  padRight: {
+    paddingRight: '10px'
+  },
   toolbarMargin: theme.mixins.toolbar
 })
 
@@ -38,23 +38,22 @@ class ScrolledAppBar extends Component {
 
         state = {
           scrolling: 0,
-          hiding:false,
+          hiding: false,
           menuOpen: false
         };
 
         onScroll = () => {
-            const currPos = document.getElementById('#man').getBoundingClientRect().top
-            if(currPos < 0){
-                const currScrollPos = window.pageYOffset - 30
-                if(this.state.scrolling < currScrollPos){
-                    !this.state.hiding && this.setState({hiding:true})
-                }else{
-                    this.state.hiding && this.setState({hiding:false})
-                }
-                this.setState({scrolling: currScrollPos})
+          const currPos = document.getElementById('#man').getBoundingClientRect().top
+          if (currPos < 0) {
+            const currScrollPos = window.pageYOffset - 30
+            if (this.state.scrolling < currScrollPos) {
+              !this.state.hiding && this.setState({hiding: true})
+            } else {
+              this.state.hiding && this.setState({hiding: false})
             }
+            this.setState({scrolling: currScrollPos})
+          }
         };
-
 
         componentDidMount () {
           window.addEventListener('scroll', this.onScroll)
@@ -66,73 +65,72 @@ class ScrolledAppBar extends Component {
 
         render () {
           const {classes} = this.props
-            if(this.props.isMobile){
-                return (
-                        <div className={classes.appBarSm}>
-                            <Fade in={!this.state.hiding}>
-                                <AppBar
-                                    color={classes.colorPrimary}
-                                    className={ classes.appBarSm}
-                                >
-                                    <Toolbar className={classes.appBarSm}>
-                                        <Fragment>
-                                            <RenderMenu {...this.props} />
-                                        </Fragment>
-                                        <Typography
-                                            variant='h5'
-                                            color='inherit'
-                                            className={classes.padRight}
-                                        >
+          if (this.props.isMobile) {
+            return (
+              <div className={classes.appBarSm}>
+                <Fade in={!this.state.hiding}>
+                  <AppBar
+                    color={classes.colorPrimary}
+                    className={classes.appBarSm}
+                  >
+                    <Toolbar className={classes.appBarSm}>
+                      <Fragment>
+                        <RenderMenu {...this.props} />
+                      </Fragment>
+                      <Typography
+                        variant='h5'
+                        color='inherit'
+                        className={classes.padRight}
+                      >
                                             Portfolio
-                                        </Typography>
-                                    </Toolbar>
-                                </AppBar>
-                            </Fade>
-                        </div>
-                )
-            }else {
-                return (
-                    <div className={classes.root}>
-                        <div className={(this.props.isMobile) ? classes.appBarSm : classes.appBar}>
-                            <Fade in={!this.state.hiding}>
-                                <AppBar
-                                    color={classes.colorPrimary}
-                                    className={(this.props.isMobile) ? classes.appBarSm : classes.appBar}
-                                >
-                                    <Toolbar className={(this.props.isMobile) ? classes.appBarSm : classes.appBar}>
-                                        <Typography
-                                            variant='h4'
-                                            color='inherit'
-                                            className={classes.flex}
-                                        >
+                      </Typography>
+                    </Toolbar>
+                  </AppBar>
+                </Fade>
+              </div>
+            )
+          } else {
+            return (
+              <div className={classes.root}>
+                <div className={(this.props.isMobile) ? classes.appBarSm : classes.appBar}>
+                  <Fade in={!this.state.hiding}>
+                    <AppBar
+                      color={classes.colorPrimary}
+                      className={(this.props.isMobile) ? classes.appBarSm : classes.appBar}
+                    >
+                      <Toolbar className={(this.props.isMobile) ? classes.appBarSm : classes.appBar}>
+                        <Typography
+                          variant='h4'
+                          color='inherit'
+                          className={classes.flex}
+                        >
                                             Portfolio
-                                        </Typography>
-                                        {(this.props.isTablet || this.props.isDesktop) && (
-                                            <Fragment>
-                                                <TransitionMenuButtons>
+                        </Typography>
+                        {(this.props.isTablet || this.props.isDesktop) && (
+                          <Fragment>
+                            <TransitionMenuButtons>
                                                     My Story
-                                                </TransitionMenuButtons>
-                                                <TransitionMenuButtons>
+                            </TransitionMenuButtons>
+                            <TransitionMenuButtons>
                                                     My Work
-                                                </TransitionMenuButtons>
-                                                <TransitionMenuButtons>
+                            </TransitionMenuButtons>
+                            <TransitionMenuButtons>
                                                     My Resume
-                                                </TransitionMenuButtons>
-                                            </Fragment>
-                                        )}
-                                        {(this.props.isMobile) && (
-                                            <Fragment>
-                                                <RenderMenu {...this.props} />
-                                            </Fragment>
-                                        )}
-                                    </Toolbar>
-                                </AppBar>
-                            </Fade>
-                        </div>
-                    </div>
-                )
-            }
-
+                            </TransitionMenuButtons>
+                          </Fragment>
+                        )}
+                        {(this.props.isMobile) && (
+                          <Fragment>
+                            <RenderMenu {...this.props} />
+                          </Fragment>
+                        )}
+                      </Toolbar>
+                    </AppBar>
+                  </Fade>
+                </div>
+              </div>
+            )
+          }
         }
 }
 

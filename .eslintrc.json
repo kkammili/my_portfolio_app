@@ -1,0 +1,28 @@
+{
+    "overrides": [
+        {
+            "files": "*.spec.js",
+            "rules": {
+                "no-unused-expressions": "off"
+            }
+        }
+    ],
+        "globals": {
+        "localStorage": true
+    },
+    "env": {
+        "browser": true,
+            "node": true
+    },
+    "plugins": [
+        "react"
+    ],
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "extends": [
+        "eslint-config-c2-react"
+    ]
+}
