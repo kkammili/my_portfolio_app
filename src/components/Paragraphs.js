@@ -30,5 +30,15 @@ export const paragraph3 = 'MERN is a JavaScript stack that provides end-to-end r
     'Comes with a pre-built extensive suite of testing tools.\n' +
     'Open source in frameworks and backed by good community supports'
 
+export const paragraph4 = 'It is no use saying to the tired ‘mental muscles’… ‘I will give you a good rest,’ ‘I will go for a long walk,’' +
+    ' or ‘I will lie down and think of nothing.’ The mind keeps busy just the same. ' +
+    'If it has been weighing and measuring, it goes on weighing and measuring. ' +
+    'If it has been worrying, it goes on worrying…It is useless to argue with the mind ' +
+    'in this condition…A gifted American psychologist has said, ‘worry is a spasm of the ' +
+    'emotion; the mind catches hold to something and will not let it go. /n '+
+    ' Some of my hobbies include reading psychological and technical books, playing chess, snookers ' +
+    'badminton, cricket, swimming and going to zym irregulary 🤪'
+
+
 
 export default paragraph1

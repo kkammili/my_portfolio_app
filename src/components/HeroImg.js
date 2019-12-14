@@ -1,7 +1,7 @@
 import React from 'react'
 import {withStyles} from '@material-ui/core/styles/index'
-import Card from '@material-ui/core/Card'
-import CardMedia from '@material-ui/core/CardMedia'
+// import Card from '@material-ui/core/Card'
+// import CardMedia from '@material-ui/core/CardMedia'
 import PropTypes from 'prop-types'
 // const hacker = require('../mp34/hacker.jpg')
 // const cracker = require('../mp34/Crackers.jpg')

@@ -1,10 +1,11 @@
 import React, {Fragment} from 'react'
 import ContentAligner from './ContentAligner'
-import paragraph1, {paragraph2, paragraph3} from './Paragraphs'
+import paragraph1, {paragraph2, paragraph3, paragraph4} from './Paragraphs'
 const UISImg = require('../mp34/UISImg.jpg')
 const C2Img = require('../mp34/ClearC2Img.png')
 // const ReactJS = require('../mp34/React.jpg')
 const MNEW = require('../mp34/MernNew.png')
+const hobbies = require('../mp34/hobbies.png')
 
 const Content = (props) => {
   return (
@@ -33,6 +34,14 @@ const Content = (props) => {
           {...props}
         />
       </a>
+        <a name='My Hobbies'>
+            <ContentAligner
+                heading={'HOBBIES'}
+                paragraph={paragraph4}
+                media={hobbies}
+                {...props}
+            />
+        </a>
     </Fragment>
   )
 }

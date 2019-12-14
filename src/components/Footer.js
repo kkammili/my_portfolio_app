@@ -11,7 +11,7 @@ const styles = (theme) => ({
     color: theme.textColor
   },
   Grid: {
-    height: 200
+    height: 220
   },
   GridMenu: {
     height: '100%'
@@ -49,7 +49,7 @@ class Footer extends React.Component {
       }
     }
 
-    items = ['Home', 'My Story', 'My Work', 'My Tech', 'My Resume', 'Contact Me']
+    items = ['Home', 'My Story', 'My Work', 'My Tech','My Hobbies', 'My Resume', 'Contact Me',]
     render () {
       const {classes} = this.props
       return (
