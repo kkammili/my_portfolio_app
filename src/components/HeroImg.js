@@ -1,11 +1,8 @@
 import React from 'react'
 import {withStyles} from '@material-ui/core/styles/index'
-// import Card from '@material-ui/core/Card'
-// import CardMedia from '@material-ui/core/CardMedia'
 import PropTypes from 'prop-types'
-// const hacker = require('../mp34/hacker.jpg')
-// const cracker = require('../mp34/Crackers.jpg')
-const moon = require('../mp34/original.gif')
+const man = require('../mp34/man.jpg')
+
 
 const styles = theme => ({
   card: {
@@ -24,17 +21,27 @@ class HeroImg extends React.Component {
       const {classes, isMobile} = this.props
       return (
           <a name='Home'>
-              <img
-                src={moon}
-                alt={'#moon'}
-                key={'moon'}
-                style={isMobile
-                  ? {height: classes.heroImageSm, width: '100%'} : {
-                    height: classes.heroImageLg,
-                    width: '100%'
-                  }
-                }
-              />
+              <div
+                  style={{
+                  backgroundImage:`url(${man})`,
+                  width:'100%',
+                  height:'70vh',
+                  backgroundAttachment: 'fixed',
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'noRepeat',
+                  backgroundSize: 'cover'
+              }} />
+              {/*<img*/}
+                {/*src={man}*/}
+                {/*alt={'#moon'}*/}
+                {/*key={'moon'}*/}
+                {/*style={isMobile*/}
+                  {/*? {height: classes.heroImageSm, width: '100%'} : {*/}
+                    {/*height: classes.heroImageLg,*/}
+                    {/*width: '100%'*/}
+                  {/*}*/}
+                {/*}*/}
+              {/*/>*/}
           </a>
       )
     }

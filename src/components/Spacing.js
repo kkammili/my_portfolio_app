@@ -4,7 +4,7 @@ import Container from '@material-ui/core/Container'
 import PropTypes from 'prop-types'
 
 const styles = (theme) => ({
-  spaceStyles: {
+  color: {
     backgroundColor: theme.appBackgroundColor.backgroundColor
   }
 })
@@ -16,10 +16,10 @@ class Spacing extends Component {
     render () {
       const {classes} = this.props
       return (
-        <Container className={classes.spaceStyles}>
-          <br />
-          <br />
-          <br />
+        <Container className={classes.color}>
+          <br className={classes.color}  id={'#man'} />
+          <br  className={classes.color}/>
+          <br className={classes.color} />
         </Container>
       )
     }

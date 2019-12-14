@@ -12,6 +12,7 @@ import Typography from '@material-ui/core/Typography'
 const SocialMediaIcons = () => {
   return (
     <Fragment>
+      <div style={{backgroundColor:'black'}}>
       <Grid container>
         <Grid item xs={1} />
         <Grid item xs={10}>
@@ -71,6 +72,7 @@ const SocialMediaIcons = () => {
       </Grid>
       <br />
       <br />
+      </div>
     </Fragment>
   )
 }

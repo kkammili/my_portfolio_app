@@ -91,7 +91,7 @@ class App extends React.Component {
     render () {
         return (
             <MuiThemeProvider theme={theme}>
-                <div style={{backgroundColor: '#000000', width: '100%'}}>
+                {/*<div style={{backgroundColor: '#000000', width: '100%'}}>*/}
                     <DeviceType>
                         <ScrolledAppBar menu={this.state.menu} handleMenu={this.handleMenu} />
                         {this.state.menu ? (
@@ -116,7 +116,7 @@ class App extends React.Component {
                             barType={this.state.barType}
                         />
                     </DeviceType>
-                </div>
+                {/*</div>*/}
             </MuiThemeProvider>
         )
     }

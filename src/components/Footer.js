@@ -10,6 +10,9 @@ const styles = (theme) => ({
   text: {
     color: theme.textColor
   },
+    color:{
+        color: theme.palette.primary.main
+    },
   Grid: {
     height: 220
   },
@@ -54,6 +57,7 @@ class Footer extends React.Component {
       const {classes} = this.props
       return (
         <Fragment>
+            <div style={{backgroundColor:'black'}}>
           <Spacing />
           <Grid style={this.props.headerMenu ? {height: '100vh'} : null} container>
             <Grid item xs={1} />
@@ -74,6 +78,7 @@ class Footer extends React.Component {
             <Grid item xs={1} />
           </Grid>
           <Spacing />
+            </div>
         </Fragment>
       )
     }

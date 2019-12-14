@@ -43,13 +43,16 @@ class ScrolledAppBar extends Component {
         };
 
         onScroll = () => {
-          const currScrollPos = window.pageYOffset - 30
-            if(this.state.scrolling < currScrollPos){
-              !this.state.hiding && this.setState({hiding:true})
-            }else{
-                this.state.hiding && this.setState({hiding:false})
+            const currPos = document.getElementById('#man').getBoundingClientRect().top
+            if(currPos < 0){
+                const currScrollPos = window.pageYOffset - 30
+                if(this.state.scrolling < currScrollPos){
+                    !this.state.hiding && this.setState({hiding:true})
+                }else{
+                    this.state.hiding && this.setState({hiding:false})
+                }
+                this.setState({scrolling: currScrollPos})
             }
-            this.setState({scrolling: currScrollPos})
         };
 
 
