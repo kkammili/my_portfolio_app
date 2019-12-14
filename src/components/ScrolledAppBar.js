@@ -66,6 +66,7 @@ class ScrolledAppBar extends Component {
           const {classes} = this.props
           return (
             <div className={classes.root}>
+              <div className={(this.props.isMobile) ? classes.appBarSm : classes.appBar}>
               <Fade in={!this.state.hiding}>
                 <AppBar
                   color={classes.colorPrimary}
@@ -100,7 +101,7 @@ class ScrolledAppBar extends Component {
                   </Toolbar>
                 </AppBar>
               </Fade>
-              <div className={!this.state.scrolling ? classes.toolbarMargin : null} />
+              </div>
             </div>
           )
         }
