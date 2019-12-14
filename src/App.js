@@ -50,7 +50,7 @@ const theme = createMuiTheme({
     backgroundColor: '#000'
   },
   imgSize: {
-    heroImageSm: '60vh',
+    heroImageSm: '65vh',
     heroImageLg: 800
   }
 })

@@ -27,7 +27,7 @@ class TransitionMenuButtons extends React.Component {
             })}
           >
             {this.state.highlight && <span>[</span>}
-           &nbsp;&nbsp;&nbsp;
+           &nbsp;
             <a
               style={
                 children === 'Contact'
@@ -64,7 +64,7 @@ class TransitionMenuButtons extends React.Component {
             >
               {this.props.children}
             </a>
-            &nbsp;&nbsp;&nbsp;
+            &nbsp;
             {this.state.highlight && <span>]</span>}
           </Button>
         </Fragment>
