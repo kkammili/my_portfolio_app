@@ -8,9 +8,10 @@ import SocialMediaIcons from './components/SocialMediaIcons'
 import HeroImg from './components/HeroImg'
 import Spacing from './components/Spacing'
 import WeText from './components/WeText'
-import MobileMenu from './components/MobileMenu'
+// import MobileMenu from './components/MobileMenu'
 import DeviceType from './components/DeviceType'
-import Check from './components/Check'
+import SwipableDrawer from './components/SwipableDrawer'
+// import Check from './components/Check'
 import SnackBar from './components/SnackBar'
 
 import {
@@ -60,6 +61,7 @@ class App extends React.Component {
     super(props)
     this.state = {
       menu: false,
+      // drawer:false,
       snackBar: false,
       horizontal: 'center',
       vertical: 'bottom',
@@ -88,19 +90,23 @@ class App extends React.Component {
       }
     }
 
+    toggleDrawer = (side, open) => event => {
+      // console.log(side, open, '<---- check')
+      if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+        return
+      }
+
+      this.setState({menu: open})
+      // setState({ ...state, [side]: open });
+    };
+
     render () {
       return (
         <MuiThemeProvider theme={theme}>
           {/* <div style={{backgroundColor: '#000000', width: '100%'}}> */}
           <DeviceType>
             <ScrolledAppBar menu={this.state.menu} handleMenu={this.handleMenu} />
-            {this.state.menu ? (
-              <MobileMenu
-                menu={this.state.menu}
-                handleMenu={this.handleMenu}
-                handleSnackBar={this.handleSnackBar}
-              />
-            ) : (<Check />)}
+            <SwipableDrawer toggleDrawer={this.toggleDrawer} menu={this.state.menu} />
             <HeroImg />
             <Spacing />
             <WeText />
