@@ -61,7 +61,6 @@ class App extends React.Component {
     super(props)
     this.state = {
       menu: false,
-      // drawer:false,
       snackBar: false,
       horizontal: 'center',
       vertical: 'bottom',
@@ -91,19 +90,16 @@ class App extends React.Component {
     }
 
     toggleDrawer = (side, open) => event => {
-      // console.log(side, open, '<---- check')
       if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
         return
       }
 
       this.setState({menu: open})
-      // setState({ ...state, [side]: open });
     };
 
     render () {
       return (
         <MuiThemeProvider theme={theme}>
-          {/* <div style={{backgroundColor: '#000000', width: '100%'}}> */}
           <DeviceType>
             <ScrolledAppBar menu={this.state.menu} handleMenu={this.handleMenu} />
             <SwipableDrawer toggleDrawer={this.toggleDrawer} menu={this.state.menu} />
