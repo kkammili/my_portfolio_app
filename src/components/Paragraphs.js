@@ -35,10 +35,8 @@ export const paragraph4 = 'It is no use saying to the tired ‘mental muscles’
     'If it has been weighing and measuring, it goes on weighing and measuring. ' +
     'If it has been worrying, it goes on worrying…It is useless to argue with the mind ' +
     'in this condition…A gifted American psychologist has said, ‘worry is a spasm of the ' +
-    'emotion; the mind catches hold to something and will not let it go. /n '+
+    'emotion; the mind catches hold to something and will not let it go. /n ' +
     ' Some of my hobbies include reading psychological and technical books, playing chess, snookers ' +
-    'badminton, cricket, swimming and going to zym irregulary 🤪'
-
-
+    'badminton, cricket, swimming and going to gym irregulary 🤪'
 
 export default paragraph1

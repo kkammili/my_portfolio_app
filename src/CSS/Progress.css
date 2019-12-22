@@ -10,12 +10,20 @@
     /*width:50%;*/
     border-radius:10px;
     background-color:pink;
-    animation: fillin 5s infinite;
+    animation: fillIn 5s infinite;
 }
 
-@keyframes fillin {
+@keyframes fillIn {
     0%   {width: 0;}
     50% {width:50%}
     100% {width:100%}
+}
+
+.fullBar {
+    height:98%;
+    width:100%;
+    border-radius:10px;
+    background-color:pink;
+    animation: fillin 5s infinite;
 }
 

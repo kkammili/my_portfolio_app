@@ -6,7 +6,6 @@ import Content from './components/Content'
 import Footer from './components/Footer'
 import SocialMediaIcons from './components/SocialMediaIcons'
 import HeroImg from './components/HeroImg'
-import Spacing from './components/Spacing'
 import WeText from './components/WeText'
 // import MobileMenu from './components/MobileMenu'
 import DeviceType from './components/DeviceType'
@@ -104,7 +103,6 @@ class App extends React.Component {
             <ScrolledAppBar menu={this.state.menu} handleMenu={this.handleMenu} />
             <SwipableDrawer toggleDrawer={this.toggleDrawer} menu={this.state.menu} />
             <HeroImg />
-            <Spacing />
             <WeText />
             <Content />
             <Footer handleSnackBar={this.handleSnackBar} handleMenu={this.handleMenu} />
@@ -118,7 +116,6 @@ class App extends React.Component {
               barType={this.state.barType}
             />
           </DeviceType>
-          {/* </div> */}
         </MuiThemeProvider>
       )
     }
