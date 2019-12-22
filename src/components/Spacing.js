@@ -17,7 +17,7 @@ class Spacing extends Component {
       const {classes} = this.props
       return (
         <Container className={classes.color}>
-          <br className={classes.color} id={'#man'} />
+          <br className={classes.color} />
           <br className={classes.color} />
           <br className={classes.color} />
         </Container>

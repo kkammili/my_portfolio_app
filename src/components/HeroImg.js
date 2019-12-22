@@ -1,8 +1,8 @@
 import React, {Fragment} from 'react'
 import {withStyles} from '@material-ui/core/styles/index'
 import PropTypes from 'prop-types'
-// import PlayArrowIcon from '@material-ui/icons/PlayArrowOutlined'
-// import PauseArrowIcon from '@material-ui/icons/PauseCircleFilledOutlined'
+import Play from '@material-ui/icons/PlayCircleOutline'
+import Pause from '@material-ui/icons/PauseCircleOutline'
 import Grid from '@material-ui/core/Grid'
 // const myPaint = require('../mp34/kittu.jpg')
 const bird0 = require('../mp34/birds.jpg')
@@ -27,7 +27,8 @@ class HeroImg extends React.Component {
   }
 
   state={
-    progress: 0
+    progress: 0,
+    pause: false
   }
 
   startTimer =() => {
@@ -49,11 +50,12 @@ class HeroImg extends React.Component {
   }
 
     handleProgressClick=(e) => {
-      clearInterval(this.progressTimer)
-      this.startTimer()
-      this.setState({
-        progress: parseInt(e.target.id)
-      })
+        clearInterval(this.progressTimer)
+        this.startTimer()
+        this.setState({
+            pause:false,
+          progress: parseInt(e.target.id)
+        })
     }
 
   birdsArray = [bird0, bird1, bird2]
@@ -64,9 +66,10 @@ class HeroImg extends React.Component {
         <a className={classes.bgColor} name='Home'>
           <img
             src={this.birdsArray[this.state.progress]}
-            alt={'#myPaint'}
-            key={'myPaint'}
-            style={{height: '50vh', width: '100%'}}
+            id={'#hero'}
+            alt={'#hero Image'}
+            key={'hero'}
+            style={{height: '55vh', width: '100%'}}
           />
         </a>
 
@@ -76,20 +79,64 @@ class HeroImg extends React.Component {
           <Grid item xs={8}>
             <div style={{display: 'flex', justifyContent: 'space-around'}}>
               <div id={0} onClick={(e) => this.handleProgressClick(e)} className={'barOutlined'}>
-                <div className={(this.state.progress === 0) ? 'fill' : null} />
+                {
+                  this.state.pause ? (
+                    <div id={0} className={'fullBar'} />
+                  ) : (
+                    <div id={0} className={(this.state.progress === 0) ? 'fill' : null} />
+                  )
+                }
               </div>
 
               <div id={1} onClick={(e) => this.handleProgressClick(e)} className={'barOutlined'}>
-                <div className={(this.state.progress === 1) ? 'fill' : null} />
+                {
+                  this.state.pause ? (
+                    <div id={1} className={'fullBar'} />
+                  ) : (
+                    <div id={1} className={(this.state.progress === 1) ? 'fill' : null} />
+                  )
+                }
               </div>
 
               <div id={2} onClick={(e) => this.handleProgressClick(e)} className={'barOutlined'}>
-                <div className={(this.state.progress === 2) ? 'fill' : null} />
+                {
+                  this.state.pause ? (
+                    <div id={2} className={'fullBar'} />
+                  ) : (
+                    <div id={2} className={(this.state.progress === 2) ? 'fill' : null} />
+                  )
+                }
               </div>
             </div>
           </Grid>
           <Grid item xs={2} />
         </Grid>
+
+        <div
+          className={classes.bgColor}
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            paddingTop: 10
+          }}
+          onClick={() => {
+            if (!this.state.pause) {
+              clearInterval(this.progressTimer)
+              this.setState({pause: true})
+            } else {
+              this.setState({pause: false})
+              this.startTimer()
+            }
+          }}
+        >
+          {!this.state.pause && (
+            <Play style={{color: 'white', height:30, width:30}} />
+          )}
+          {this.state.pause && (
+            <Pause style={{color: 'white', height:30, width:30}} />
+          )}
+        </div>
+
       </Fragment>
 
     )
