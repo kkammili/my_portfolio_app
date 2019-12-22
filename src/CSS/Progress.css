@@ -1,0 +1,21 @@
+.barOutlined {
+    height:5px;
+    width:20%;
+    border:1px solid white;
+    border-radius:10px;
+}
+
+.fill {
+    height:98%;
+    /*width:50%;*/
+    border-radius:10px;
+    background-color:pink;
+    animation: fillin 5s infinite;
+}
+
+@keyframes fillin {
+    0%   {width: 0;}
+    50% {width:50%}
+    100% {width:100%}
+}
+
