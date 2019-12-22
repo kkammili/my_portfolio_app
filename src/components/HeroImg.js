@@ -50,12 +50,12 @@ class HeroImg extends React.Component {
   }
 
     handleProgressClick=(e) => {
-        clearInterval(this.progressTimer)
-        this.startTimer()
-        this.setState({
-            pause:false,
-          progress: parseInt(e.target.id)
-        })
+      clearInterval(this.progressTimer)
+      this.startTimer()
+      this.setState({
+        pause: false,
+        progress: parseInt(e.target.id)
+      })
     }
 
   birdsArray = [bird0, bird1, bird2]
@@ -130,10 +130,10 @@ class HeroImg extends React.Component {
           }}
         >
           {!this.state.pause && (
-            <Play style={{color: 'white', height:30, width:30}} />
+            <Play style={{color: 'white', height: 30, width: 30}} />
           )}
           {this.state.pause && (
-            <Pause style={{color: 'white', height:30, width:30}} />
+            <Pause style={{color: 'white', height: 30, width: 30}} />
           )}
         </div>
 
