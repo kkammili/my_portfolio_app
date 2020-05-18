@@ -27,14 +27,23 @@ class ContentAligner extends React.Component {
       heading: PropTypes.string,
       paragraph: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
       media: PropTypes.string,
-      isMobile: PropTypes.bool
+      isMobile: PropTypes.bool,
+      isTablet: PropTypes.bool
     }
     render () {
       const {classes} = this.props
+      let height
+      if (this.props.isMobile) {
+        height = window.innerHeight * 0.35
+      } else if (this.props.isTablet) {
+        height = window.innerHeight * 0.50
+      } else {
+        height = window.innerHeight
+      }
       return (
         <React.Fragment>
           <Spacing />
-          {this.props.isMobile && (
+          {(this.props.isMobile || this.props.isTablet) && (
             <Card className={classes.card}>
               <CardActionArea>
                 <Container maxWidth={'xl'} color={'#000'}>
@@ -42,7 +51,7 @@ class ContentAligner extends React.Component {
                     component='img'
                     className={classes.cardMedia}
                     alt='Contemplative Reptile'
-                    height={250}
+                    height={height}
                     width={'60%'}
                     image={this.props.media}
                     title='Contemplative Reptile'

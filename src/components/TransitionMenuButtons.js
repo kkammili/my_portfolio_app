@@ -40,22 +40,22 @@ class TransitionMenuButtons extends React.Component {
                   : `#${this.props.children}`}
               target={children === 'My Resume' ? '_blank' : null}
               onClick={() => {
-                if (children === 'Contact Me') {
-                  const address = `15480 Dallas Pkwy, Dallas, TX 75248, Apt#2090, Ph: +1(469) 569-6257`
-                  navigator.clipboard.writeText(address)
-                    .then(() => {
-                      const position = {horizontal: 'center', vertical: 'bottom'}
-                      const message = `Copied to clipboard 😁😁`
-                      const barType = 'success'
-                      this.props.handleSnackBar(true, position, message, barType)
-                    })
-                    .catch(() => {
-                      const position = {horizontal: 'center', vertical: 'bottom'}
-                      const message = 'Something went wrong!!'
-                      const barType = 'warning'
-                      this.props.handleSnackBar(true, position, message, barType)
-                    })
-                }
+                // if (children === 'Contact Me') {
+                //   const address = `15480 Dallas Pkwy, Dallas, TX 75248, Apt#2090, Ph: +1(469) 569-6257`
+                //   navigator.clipboard.writeText(address)
+                //     .then(() => {
+                //       const position = {horizontal: 'center', vertical: 'bottom'}
+                //       const message = `Copied to clipboard 😁😁`
+                //       const barType = 'success'
+                //       this.props.handleSnackBar(true, position, message, barType)
+                //     })
+                //     .catch(() => {
+                //       const position = {horizontal: 'center', vertical: 'bottom'}
+                //       const message = 'Something went wrong!!'
+                //       const barType = 'warning'
+                //       this.props.handleSnackBar(true, position, message, barType)
+                //     })
+                // }
 
                 if (this.props.menu) {
                   this.props.handleMenu()

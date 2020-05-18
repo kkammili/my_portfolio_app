@@ -23,7 +23,8 @@ const styles = theme => ({
 class HeroImg extends React.Component {
   static propTypes = {
     classes: PropTypes.object,
-    isMobile: PropTypes.bool
+    isMobile: PropTypes.bool,
+    isTablet: PropTypes.bool
   }
 
   state={
@@ -60,18 +61,26 @@ class HeroImg extends React.Component {
 
   birdsArray = [bird0, bird1, bird2]
   render () {
+    let height
+    if (this.props.isMobile) {
+      height = window.innerHeight * 0.40
+    } else if (this.props.isTablet) {
+      height = window.innerHeight * 0.60
+    } else {
+      height = window.innerHeight * 0.90
+    }
     const {classes} = this.props
     return (
       <Fragment>
-        <a className={classes.bgColor} name='Home'>
-          <img
-            src={this.birdsArray[this.state.progress]}
-            id={'#hero'}
-            alt={'#hero Image'}
-            key={'hero'}
-            style={{height: '55vh', width: '100%'}}
-          />
-        </a>
+        {/* <a className={classes.bgColor} name='My Home'> */}
+        <img
+          src={this.birdsArray[this.state.progress]}
+          id={'#hero'}
+          alt={'#hero Image'}
+          key={'hero'}
+          style={{height: height, width: '100%'}}
+        />
+        {/* </a> */}
 
         <div className={classes.bgColor} style={{paddingTop: 20}} />
         <Grid className={classes.bgColor} container>
