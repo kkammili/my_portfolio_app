@@ -7,7 +7,9 @@ class TransitionMenuButtons extends React.Component {
       children: PropTypes.node,
       menu: PropTypes.bool,
       handleMenu: PropTypes.func,
-      handleSnackBar: PropTypes.func
+      handleSnackBar: PropTypes.func,
+      scrolledAppBarRef: PropTypes.object,
+      isDesktop: PropTypes.bool
     }
     state={
       highlight: false
@@ -37,26 +39,32 @@ class TransitionMenuButtons extends React.Component {
               href={
                 children === 'My Resume'
                   ? 'https://drive.google.com/file/d/1sxMmCqo2arP66TwOA-6wuyVVPOsobYPf/view?usp=sharing'
-                  : `#${this.props.children}`}
+                  : children === 'Contact Me' ? 'tel:+1-469-569-6257'
+                    : `#${this.props.children}`}
               target={children === 'My Resume' ? '_blank' : null}
               onClick={() => {
-                // if (children === 'Contact Me') {
-                //   const address = `15480 Dallas Pkwy, Dallas, TX 75248, Apt#2090, Ph: +1(469) 569-6257`
-                //   navigator.clipboard.writeText(address)
-                //     .then(() => {
-                //       const position = {horizontal: 'center', vertical: 'bottom'}
-                //       const message = `Copied to clipboard 😁😁`
-                //       const barType = 'success'
-                //       this.props.handleSnackBar(true, position, message, barType)
-                //     })
-                //     .catch(() => {
-                //       const position = {horizontal: 'center', vertical: 'bottom'}
-                //       const message = 'Something went wrong!!'
-                //       const barType = 'warning'
-                //       this.props.handleSnackBar(true, position, message, barType)
-                //     })
-                // }
+                if (this.props.scrolledAppBarRef.current) {
+                  this.props.scrolledAppBarRef.current.setMenuHiding(false)
+                }
 
+                if (this.props.children === 'Contact Me' && this.props.isDesktop) {
+                  const copy = '+1-469-569-6257'
+                  if (copy) {
+                    const el = document.createElement('textarea')
+                    el.value = copy
+                    el.setAttribute('readonly', '')
+                    el.style.position = 'absolute'
+                    el.style.left = '-9999px'
+                    document.body.appendChild(el)
+                    el.select()
+                    document.execCommand('copy')
+                    document.body.removeChild(el)
+                    const position = {horizontal: 'center', vertical: 'bottom'}
+                    const message = `Copied contact info to clipboard 😁😁`
+                    const barType = 'success'
+                    this.props.handleSnackBar(true, position, message, barType)
+                  }
+                }
                 if (this.props.menu) {
                   this.props.handleMenu()
                 }

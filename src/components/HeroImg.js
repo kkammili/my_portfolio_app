@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import {withStyles} from '@material-ui/core/styles/index'
 import PropTypes from 'prop-types'
 import Play from '@material-ui/icons/PlayCircleOutline'
@@ -71,8 +71,7 @@ class HeroImg extends React.Component {
     }
     const {classes} = this.props
     return (
-      <Fragment>
-        {/* <a className={classes.bgColor} name='My Home'> */}
+      <div style={{backgroundColor: 'black'}}>
         <img
           src={this.birdsArray[this.state.progress]}
           id={'#hero'}
@@ -80,7 +79,6 @@ class HeroImg extends React.Component {
           key={'hero'}
           style={{height: height, width: '100%'}}
         />
-        {/* </a> */}
 
         <div className={classes.bgColor} style={{paddingTop: 20}} />
         <Grid className={classes.bgColor} container>
@@ -146,7 +144,7 @@ class HeroImg extends React.Component {
           )}
         </div>
 
-      </Fragment>
+      </div>
 
     )
   }

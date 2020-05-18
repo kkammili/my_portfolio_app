@@ -41,7 +41,7 @@ class ContentAligner extends React.Component {
         height = window.innerHeight
       }
       return (
-        <React.Fragment>
+        <div style={{backgroundColor: 'black'}}>
           <Spacing />
           {(this.props.isMobile || this.props.isTablet) && (
             <Card className={classes.card}>
@@ -88,7 +88,7 @@ class ContentAligner extends React.Component {
               </CardActionArea>
             </Card>
           )}
-        </React.Fragment>
+        </div>
       )
     }
 }

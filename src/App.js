@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {createRef} from 'react'
 import ScrolledAppBar from './components/ScrolledAppBar'
 import indigo from '@material-ui/core/colors/indigo'
 import pink from '@material-ui/core/colors/pink'
@@ -58,6 +58,7 @@ const theme = createMuiTheme({
 class App extends React.Component {
   constructor (props) {
     super(props)
+    this.scrolledAppBarRef = createRef()
     this.state = {
       menu: false,
       snackBar: false,
@@ -100,12 +101,16 @@ class App extends React.Component {
       return (
         <MuiThemeProvider theme={theme}>
           <DeviceType>
-            <ScrolledAppBar menu={this.state.menu} handleMenu={this.handleMenu} />
+            <ScrolledAppBar ref={this.scrolledAppBarRef} menu={this.state.menu} handleMenu={this.handleMenu} />
             <SwipableDrawer toggleDrawer={this.toggleDrawer} menu={this.state.menu} />
             <HeroImg />
             <WeText />
             <Content />
-            <Footer handleSnackBar={this.handleSnackBar} handleMenu={this.handleMenu} />
+            <Footer
+              scrolledAppBarRef={this.scrolledAppBarRef}
+              handleSnackBar={this.handleSnackBar}
+              handleMenu={this.handleMenu}
+            />
             <SocialMediaIcons />
             <SnackBar
               handleSnackBar={this.handleSnackBar}

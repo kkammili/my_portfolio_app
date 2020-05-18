@@ -46,7 +46,6 @@ class ScrolledAppBar extends Component {
           const currPos = document.getElementById('#hero').getBoundingClientRect().top
           if (currPos < 0) {
             const currScrollPos = window.pageYOffset
-            // console.log(currScrollPos, '<----- check')
             if (this.state.scrolling < currScrollPos) {
               !this.state.hiding && this.setState({hiding: true})
             } else {
@@ -64,11 +63,18 @@ class ScrolledAppBar extends Component {
           window.removeEventListener('scroll', this.onScroll)
         }
 
+        setMenuHiding=(bool) => {
+          this.setState({
+            hiding: bool
+          })
+        }
+
         render () {
           const {classes} = this.props
           if (this.props.isMobile) {
             return (
               <div className={classes.appBarSm}>
+                <a name='My Home' />
                 <Fade in={!this.state.hiding}>
                   <AppBar
                     color={classes.colorPrimary}
@@ -94,6 +100,7 @@ class ScrolledAppBar extends Component {
             return (
               <div className={classes.root}>
                 <div className={(this.props.isMobile) ? classes.appBarSm : classes.appBar}>
+                  <a name='My Home' />
                   <Fade in={!this.state.hiding}>
                     <AppBar
                       color={classes.colorPrimary}
