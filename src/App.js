@@ -10,6 +10,8 @@ import SwipableDrawer from './components/SwipableDrawer'
 // import Check from './components/Check'
 import SnackBar from './components/SnackBar'
 import PropTypes from 'prop-types'
+import ParallaxAlligner from '../src/components/ParallaxAlligner'
+const face = require('../src/mp34/Face.jpg')
 
 class App extends React.Component {
   constructor (props) {
@@ -91,7 +93,8 @@ class App extends React.Component {
         return (
           <Fragment>
             <ScrolledAppBar ref={this.scrolledAppBarRef} menu={this.state.menu} handleMenu={this.handleMenu} />
-            <div>Laptop view still under progress.</div>
+            <img id={'#hero'} style={{width: window.innerWidth, height: window.innerHeight * 0.90}} src={face} />
+            <ParallaxAlligner />
           </Fragment>
         )
       }
