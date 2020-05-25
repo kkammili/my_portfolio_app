@@ -1,59 +1,15 @@
-import React, {createRef} from 'react'
+import React, {createRef, Fragment} from 'react'
 import ScrolledAppBar from './components/ScrolledAppBar'
-import indigo from '@material-ui/core/colors/indigo'
-import pink from '@material-ui/core/colors/pink'
 import Content from './components/Content'
 import Footer from './components/Footer'
 import SocialMediaIcons from './components/SocialMediaIcons'
 import HeroImg from './components/HeroImg'
 import WeText from './components/WeText'
-// import MobileMenu from './components/MobileMenu'
 import DeviceType from './components/DeviceType'
 import SwipableDrawer from './components/SwipableDrawer'
 // import Check from './components/Check'
 import SnackBar from './components/SnackBar'
-
-import {
-  createMuiTheme,
-  MuiThemeProvider
-} from '@material-ui/core/styles'
-
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      light: '#fff',
-      main: '#000000',
-      dark: '#000000',
-      contrastText: '#fff'
-    },
-    secondary: {
-      light: '#ff79b0',
-      main: '#fff',
-      dark: '#c60055',
-      contrastText: '#000'
-    },
-    openTitle: indigo['400'],
-    protectedTitle: pink['400'],
-    type: 'light'
-  },
-  typography: {
-    h4: {
-      color: '#fff'
-    },
-    textColor: '#fff',
-    fontFamily: [
-      'Mono, Semi-Mono',
-      'Book Inktrap, Book, Medium'
-    ].join(',')
-  },
-  appBackgroundColor: {
-    backgroundColor: '#000'
-  },
-  imgSize: {
-    heroImageSm: '63vh',
-    heroImageLg: 800
-  }
-})
+import PropTypes from 'prop-types'
 
 class App extends React.Component {
   constructor (props) {
@@ -67,6 +23,12 @@ class App extends React.Component {
       message: '',
       barType: 'warning'
     }
+  }
+
+  static propTypes = {
+    isDesktop: PropTypes.bool,
+    isMobile: PropTypes.bool,
+    isTablet: PropTypes.bool
   }
 
     handleMenu=() => {
@@ -98,31 +60,41 @@ class App extends React.Component {
     };
 
     render () {
-      return (
-        <MuiThemeProvider theme={theme}>
-          <DeviceType>
+      if (!this.props.isDesktop) {
+        return (
+          <Fragment>
+            <DeviceType>
+              <ScrolledAppBar ref={this.scrolledAppBarRef} menu={this.state.menu} handleMenu={this.handleMenu} />
+              <SwipableDrawer toggleDrawer={this.toggleDrawer} menu={this.state.menu} />
+              <HeroImg />
+              <WeText />
+              <Content />
+              <Footer
+                scrolledAppBarRef={this.scrolledAppBarRef}
+                handleSnackBar={this.handleSnackBar}
+                handleMenu={this.handleMenu}
+              />
+              <SocialMediaIcons />
+              <SnackBar
+                handleSnackBar={this.handleSnackBar}
+                open={this.state.snackBar}
+                horizontal={this.state.horizontal}
+                vertical={this.state.vertical}
+                message={this.state.message}
+                barType={this.state.barType}
+              />
+            </DeviceType>
+          </Fragment>
+
+        )
+      } else {
+        return (
+          <Fragment>
             <ScrolledAppBar ref={this.scrolledAppBarRef} menu={this.state.menu} handleMenu={this.handleMenu} />
-            <SwipableDrawer toggleDrawer={this.toggleDrawer} menu={this.state.menu} />
-            <HeroImg />
-            <WeText />
-            <Content />
-            <Footer
-              scrolledAppBarRef={this.scrolledAppBarRef}
-              handleSnackBar={this.handleSnackBar}
-              handleMenu={this.handleMenu}
-            />
-            <SocialMediaIcons />
-            <SnackBar
-              handleSnackBar={this.handleSnackBar}
-              open={this.state.snackBar}
-              horizontal={this.state.horizontal}
-              vertical={this.state.vertical}
-              message={this.state.message}
-              barType={this.state.barType}
-            />
-          </DeviceType>
-        </MuiThemeProvider>
-      )
+            <div>Laptop view still under progress.</div>
+          </Fragment>
+        )
+      }
     }
 }
 
