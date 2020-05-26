@@ -17,36 +17,46 @@ export class ParallaxAlligner extends Component {
   render () {
     return (
       <Fragment>
-        <Parallax
-          image={UIS}
-          heading={'UIS'}
-          textColor={'#FFD662FF'}
-          headingColor={'#FFD662FF'}
-          imageAligned={'left'}
-          paragraph={paragraph1}
-        />
-        <Parallax
-          image={C2Img}
-          heading={'ClearC2 Inc'}
-          textColor={'#FFFFFF'}
-          headingColor={'#FFFFFF'}
-          imageAligned={'right'}
-          paragraph={paragraph2}
-        /><Parallax
-          image={MNEW}
-          heading={'MERN'}
-          textColor={'#4CB346'}
-          headingColor={'#4CB346'}
-          imageAligned={'left'}
-          paragraph={paragraph3}
-        /><Parallax
-          image={hobbies}
-          heading={'HOBBIES'}
-          textColor={'#00bfff'}
-          headingColor={'#00bfff'}
-          imageAligned={'right'}
-          paragraph={paragraph4}
-        />
+        <a name='My Story'>
+          <Parallax
+            image={UIS}
+            heading={'UIS'}
+            textColor={'#FFD662FF'}
+            headingColor={'#FFD662FF'}
+            imageAligned={'left'}
+            paragraph={paragraph1}
+          />
+        </a>
+        <a name='My Work'>
+          <Parallax
+            image={C2Img}
+            heading={'ClearC2 Inc'}
+            textColor={'#FFFFFF'}
+            headingColor={'#FFFFFF'}
+            imageAligned={'right'}
+            paragraph={paragraph2}
+          />
+        </a>
+        <a name='My Tech'>
+          <Parallax
+            image={MNEW}
+            heading={'MERN'}
+            textColor={'#4CB346'}
+            headingColor={'#4CB346'}
+            imageAligned={'left'}
+            paragraph={paragraph3}
+          />
+        </a>
+        <a name='My Hobbies'>
+          <Parallax
+            image={hobbies}
+            heading={'HOBBIES'}
+            textColor={'#00bfff'}
+            headingColor={'#00bfff'}
+            imageAligned={'right'}
+            paragraph={paragraph4}
+          />
+        </a>
       </Fragment>
     )
   }

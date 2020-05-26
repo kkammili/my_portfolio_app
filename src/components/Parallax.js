@@ -24,7 +24,7 @@ export class Parallax extends Component {
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
             fontFamily: 'Times,serif',
-            fontSize: 22,
+            fontSize: 17,
             color: 'white',
             fontWeight: 'bold',
             fontStyle: 'normal',

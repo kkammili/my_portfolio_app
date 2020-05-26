@@ -95,6 +95,16 @@ class App extends React.Component {
             <ScrolledAppBar ref={this.scrolledAppBarRef} menu={this.state.menu} handleMenu={this.handleMenu} />
             <img id={'#hero'} style={{width: window.innerWidth, height: window.innerHeight * 0.90}} src={face} />
             <ParallaxAlligner />
+            <div style={{position: 'relative', bottom: 15, backgroundColor: 'black'}}>
+              <DeviceType>
+                <Footer
+                  scrolledAppBarRef={this.scrolledAppBarRef}
+                  handleSnackBar={this.handleSnackBar}
+                  handleMenu={this.handleMenu}
+                />
+                <SocialMediaIcons />
+              </DeviceType>
+            </div>
           </Fragment>
         )
       }
