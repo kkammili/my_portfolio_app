@@ -89,7 +89,7 @@ class ScrolledAppBar extends Component {
                         color='inherit'
                         className={classes.padRight}
                       >
-                                            Portfolio
+                        Portfolio
                       </Typography>
                     </Toolbar>
                   </AppBar>
@@ -114,7 +114,7 @@ class ScrolledAppBar extends Component {
                         >
                                             Portfolio
                         </Typography>
-                        {(this.props.isTablet || this.props.isDesktop) && (
+                        {(!this.props.isMobile) && (
                           <Fragment>
                             <TransitionMenuButtons>
                                                     My Story
