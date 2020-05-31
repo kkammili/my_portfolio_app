@@ -52,7 +52,7 @@ class Footer extends React.Component {
       }
     }
 
-    items = ['My Home', 'My Story', 'My Work', 'My Tech', 'My Hobbies', 'My Resume', 'Contact Me']
+    items = ['My Home', 'My Story', 'My Work', 'My Tech', 'My Hobbies', 'Contact Me']
     render () {
       const {classes} = this.props
       return (

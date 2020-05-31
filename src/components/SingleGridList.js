@@ -117,7 +117,7 @@ export default function SingleLineGridList () {
   const classes = useStyles()
 
   return (
-    <div style={{paddingTop: window.innerHeight * 0.10}}>
+    <div style={{paddingTop: window.innerHeight * 0.10, marginBottom: window.innerHeight * 0.20}}>
       <div className={classes.root}>
         <GridList className={classes.gridList} cols={2.5}>
           {tileData.map((tile) => (

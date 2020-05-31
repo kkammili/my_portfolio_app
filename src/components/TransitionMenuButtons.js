@@ -9,7 +9,8 @@ class TransitionMenuButtons extends React.Component {
       handleMenu: PropTypes.func,
       handleSnackBar: PropTypes.func,
       scrolledAppBarRef: PropTypes.object,
-      isDesktop: PropTypes.bool
+      isDesktop: PropTypes.bool,
+      setMenuHiding: PropTypes.func
     }
     state={
       highlight: false
@@ -37,17 +38,17 @@ class TransitionMenuButtons extends React.Component {
                   : {textDecoration: 'none', color: 'inherit', cursor: 'pointer'}
               }
               href={
-                children === 'My Resume'
-                  ? 'https://drive.google.com/file/d/1sxMmCqo2arP66TwOA-6wuyVVPOsobYPf/view?usp=sharing'
-                  : children === 'Contact Me' ? 'tel:+1-469-569-6257'
-                    : `#${this.props.children}`}
-              target={children === 'My Resume' ? '_blank' : null}
+                children === 'Contact Me' ? 'tel:+1-469-569-6257'
+                  : `#${this.props.children}`
+              }
               onClick={() => {
-                if (this.props.scrolledAppBarRef.current) {
+                if (this.props.scrolledAppBarRef) {
                   this.props.scrolledAppBarRef.current.setMenuHiding(false)
+                } else if (this.props.setMenuHiding) {
+                  this.props.setMenuHiding(false)
                 }
 
-                if (this.props.children === 'Contact Me' && this.props.isDesktop) {
+                if (this.props.children === 'Contact Me') {
                   const copy = '+1-469-569-6257'
                   if (copy) {
                     const el = document.createElement('textarea')

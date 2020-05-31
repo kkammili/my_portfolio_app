@@ -11,7 +11,7 @@ import History from '@material-ui/icons/History'
 import Work from '@material-ui/icons/Work'
 import Computer from '@material-ui/icons/Computer'
 import EmojiPeople from '@material-ui/icons/EmojiPeople'
-import InsertDrive from '@material-ui/icons/InsertDriveFile'
+// import InsertDrive from '@material-ui/icons/InsertDriveFile'
 import Contact from '@material-ui/icons/Person'
 import PropTypes from 'prop-types'
 
@@ -100,17 +100,6 @@ export class SwipeableTemporaryDrawer extends React.Component {
               </List>
               <Divider />
               <List>
-                <ListItem button key={'insert drive'}>
-                  <a
-                    style={{color: 'inherit', textDecoration: 'none', display: 'flex'}}
-                    href={'https://drive.google.com/file/d/1sxMmCqo2arP66TwOA-6wuyVVPOsobYPf/view?usp=sharing'}
-                    target={'_blank'}
-                  >
-                    <ListItemIcon><InsertDrive /></ListItemIcon>
-                    <ListItemText primary={'My Resume'} />
-                  </a>
-                </ListItem>
-
                 <ListItem button key={'Contact Me'}>
                   {/* has to add snackbar */}
                   <ListItemIcon><Contact /></ListItemIcon>

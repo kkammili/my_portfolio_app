@@ -33,7 +33,8 @@ class ScrolledAppBar extends Component {
         classes: PropTypes.object,
         isMobile: PropTypes.bool,
         isTablet: PropTypes.bool,
-        isDesktop: PropTypes.bool
+        isDesktop: PropTypes.bool,
+        handleSnackBar: PropTypes.func
       }
 
         state = {
@@ -116,14 +117,23 @@ class ScrolledAppBar extends Component {
                         </Typography>
                         {(!this.props.isMobile) && (
                           <Fragment>
-                            <TransitionMenuButtons>
-                                                    My Story
+                            <TransitionMenuButtons setMenuHiding={this.setMenuHiding}>
+                                  My Story
                             </TransitionMenuButtons>
-                            <TransitionMenuButtons>
-                                                    My Work
+                            <TransitionMenuButtons setMenuHiding={this.setMenuHiding}>
+                                  My Work
                             </TransitionMenuButtons>
-                            <TransitionMenuButtons>
-                                                    My Resume
+                            <TransitionMenuButtons setMenuHiding={this.setMenuHiding}>
+                                  My Tech
+                            </TransitionMenuButtons>
+                            <TransitionMenuButtons setMenuHiding={this.setMenuHiding}>
+                                  My Hobbies
+                            </TransitionMenuButtons>
+                            <TransitionMenuButtons
+                              setMenuHiding={this.setMenuHiding}
+                              handleSnackBar={this.props.handleSnackBar}
+                            >
+                                  Contact Me
                             </TransitionMenuButtons>
                           </Fragment>
                         )}

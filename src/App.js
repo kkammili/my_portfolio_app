@@ -93,8 +93,13 @@ class App extends React.Component {
       } else {
         return (
           <Fragment>
-            <ScrolledAppBar ref={this.scrolledAppBarRef} menu={this.state.menu} handleMenu={this.handleMenu} />
-            <div className={'container'}>
+            <ScrolledAppBar
+              ref={this.scrolledAppBarRef}
+              menu={this.state.menu}
+              handleMenu={this.handleMenu}
+              handleSnackBar={this.handleSnackBar}
+            />
+            <div className={'container'} style={{backgroundColor: 'black'}}>
               <img
                 id={'#hero'}
                 style={{
@@ -106,10 +111,18 @@ class App extends React.Component {
                 src={face}
               />
               <ParallaxAlligner />
-              <div style={{position: 'relative', bottom: 15, backgroundColor: 'black'}}>
+              <div style={{height: window.innerHeight}}>
                 <DeviceType>
                   <SingleGridList />
 
+                  <SnackBar
+                    handleSnackBar={this.handleSnackBar}
+                    open={this.state.snackBar}
+                    horizontal={this.state.horizontal}
+                    vertical={this.state.vertical}
+                    message={this.state.message}
+                    barType={this.state.barType}
+                  />
                   <Footer
                     scrolledAppBarRef={this.scrolledAppBarRef}
                     handleSnackBar={this.handleSnackBar}
