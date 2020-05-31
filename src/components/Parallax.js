@@ -29,7 +29,8 @@ export class Parallax extends Component {
             fontWeight: 'bold',
             fontStyle: 'normal',
             textDecoration: 'none',
-            display: 'flex'
+            display: 'flex',
+            scrollSnapAlign: 'start'
           }}
         >
           {this.props.imageAligned === 'right' && (

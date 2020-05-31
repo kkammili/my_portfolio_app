@@ -11,6 +11,7 @@ import SwipableDrawer from './components/SwipableDrawer'
 import SnackBar from './components/SnackBar'
 import PropTypes from 'prop-types'
 import ParallaxAlligner from '../src/components/ParallaxAlligner'
+import SingleGridList from '../src/components/SingleGridList'
 const face = require('../src/mp34/Face.jpg')
 
 class App extends React.Component {
@@ -93,17 +94,31 @@ class App extends React.Component {
         return (
           <Fragment>
             <ScrolledAppBar ref={this.scrolledAppBarRef} menu={this.state.menu} handleMenu={this.handleMenu} />
-            <img id={'#hero'} style={{width: window.innerWidth, height: window.innerHeight * 0.90}} src={face} />
-            <ParallaxAlligner />
-            <div style={{position: 'relative', bottom: 15, backgroundColor: 'black'}}>
-              <DeviceType>
-                <Footer
-                  scrolledAppBarRef={this.scrolledAppBarRef}
-                  handleSnackBar={this.handleSnackBar}
-                  handleMenu={this.handleMenu}
-                />
-                <SocialMediaIcons />
-              </DeviceType>
+            <div className={'container'}>
+              <img
+                id={'#hero'}
+                style={{
+                  width: window.innerWidth,
+                  height: window.innerHeight * 0.90,
+                  scrollSnapAlign: 'start'
+
+                }}
+                src={face}
+              />
+              <ParallaxAlligner />
+              <div style={{position: 'relative', bottom: 15, backgroundColor: 'black'}}>
+                <DeviceType>
+                  <SingleGridList />
+
+                  <Footer
+                    scrolledAppBarRef={this.scrolledAppBarRef}
+                    handleSnackBar={this.handleSnackBar}
+                    handleMenu={this.handleMenu}
+                  />
+                  <SocialMediaIcons />
+
+                </DeviceType>
+              </div>
             </div>
           </Fragment>
         )
